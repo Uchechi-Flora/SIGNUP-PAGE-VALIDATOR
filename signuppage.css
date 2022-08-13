@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#signupbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+    background: #222;
+}
+
+.textbox{
+    position: relative;
+    width:250px;
+}
+.textbox input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+}
+.textbox span{
+    position: absolute;
+    left: 0;
+    padding: 10px 0 5px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+}
+.textbox input:valid ~ span,
+.textbox input:focus ~ span
+{
+    color: #2196f3;
+    transform: translateY(-16px);
+    font-size: 0.65em;
+}
+
+.textbox i {
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height:2px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.textbox i::before{
+    content: '';
+    left: -100%;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff1b69, #ff0, #2196f3, #9c27b0, #ff1b69);
+    animation: animate 2s linear infinite;
+    transition: 0.5s;
+}
+
+.textbox input:valid ~ i::before,
+.textbox input:focus ~ i::before
+{
+    left: 0;
+}
+
+@keyframes animate
+{
+0%{background-position-x: 0;}
+
+100%{background-position-x: 250px;}
+}
+/*SHAKE ON INVALID INPUT
+#fullname:invalid{
+    animation: shake 300ms;
+}
+
+@keyframes shake{
+    25%{transform: translateX(4px);}
+    50%{transform: translateX(-4px);}
+    75%{transform: translateX(4px);}
+}
+*/
+.submitbtn {
+    width:100px;
+    border-radius: 25%;
+    padding: 15px;
+    align-items: center;
+    background: linear-gradient(90deg, #ff1b69, #2196f3,#ff0, #9c27b0, #ff1b69);
+    animation: btn 2s linear infinite;
+    /*background-color: #2196f3*/
+}
+
+@keyframes btn
+{
+0%{background-position-x: 0;}
+
+100%{background-position-x: 100px;}
+}
